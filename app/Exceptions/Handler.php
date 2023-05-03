@@ -71,6 +71,6 @@ class Handler extends ExceptionHandler
             'line' => $e->getLine(),
             'description' => $e->getMessage(),
         ];
-        $this->telegram->sendMessage(env('TELEGRAM_CHAT_ID'), $data);
+//        $this->telegram->sendMessage(env('TELEGRAM_CHAT_ID'), $data);
     }
 }
