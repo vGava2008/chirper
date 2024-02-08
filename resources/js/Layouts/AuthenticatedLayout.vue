@@ -29,14 +29,26 @@ const showingNavigationDropdown = ref(false);
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
-                                </NavLink>
+<!--                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">-->
+<!--                                    Dashboard-->
+<!--                                </NavLink>-->
 <!--                                <NavLink :href="route('chirps.index')" :active="route().current('chirps.index')">-->
 <!--                                    Chirps-->
 <!--                                </NavLink>-->
-                                <NavLink :href="route('brands.index')" :active="route().current('brands.index')">
-                                    Brands
+<!--                                <NavLink :href="route('brands.index')" :active="route().current('brands.index')">-->
+<!--                                    Brands-->
+<!--                                </NavLink>-->
+
+                                <NavLink :href="route('services.index')" :active="route().current('services.index')">
+                                    My Services
+                                </NavLink>
+
+                                <NavLink :href="route('categories.index')" :active="route().current('categories.index')">
+                                    Categories
+                                </NavLink>
+
+                                <NavLink :href="route('search.index')" :active="route().current('search.index')">
+                                    Search Engine
                                 </NavLink>
                             </div>
                         </div>

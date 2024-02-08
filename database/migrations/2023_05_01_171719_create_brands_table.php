@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->text('user_id');
+            $table->text('category_id')->nullable();
             $table->text('name');
-            $table->text('description');
-            $table->text('website');
-            $table->text('email');
+            $table->text('description')->nullable();
+            $table->text('website')->nullable();
+            $table->text('email')->nullable();
             $table->text('phone_number');
+            $table->json('meta')->nullable();
             $table->timestamps();
         });
     }

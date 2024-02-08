@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,47 +19,61 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
+
+        $superAdminRole = Role::where('name', 'sAdmin')->first();
+        $adminRole = Role::where('name', 'admin')->first();
+        $employeeRole = Role::where('name', 'employee')->first();
+        $subscriberRole = Role::where('name', 'subscriber')->first();
+
+        $user = User::factory()->create([
             'name' => 'Super Admin',
             'email'=>'vgava86@gmail.com',
-            'phone' => '+380970489523',
+            'phone_number' => '+380970489523',
             'password'=> Hash::make('password'),
-            'admin' => 1,
-            'role' => 0,
+            'admin' => true,
         ]);
-        User::factory()->create([
-            'name' => 'owner',
+        $user->roles()->attach([$superAdminRole->id]);
+
+        $user = User::factory()->create([
+            'name' => 'Owner',
             'email'=>'owner@gmail.com',
-            'phone' => '+000000000000',
+            'phone_number' => '+000000000000',
             'password'=> Hash::make('password'),
             'admin' => 0,
             'role' => 1,
         ]);
+        $user->roles()->attach([$adminRole->id]);
 
-        DB::table('brands')->insert([
-            'user_id' => 1,
-            'name' => 'Авто хім комплект',
-            'description' => 'Автомобілі і запчастини, СТО',
-            'website' => 'ahk.com.ua',
-            'email' => 'AHK@gmail.com',
-            'phone_number' => '0970090090',
+        $user = User::factory()->create([
+            'name' => 'Owner blank',
+            'email'=>'owner_blank@gmail.com',
+            'phone_number' => '+111111111111',
+            'password'=> Hash::make('password'),
+            'admin' => 0,
+            'role' => 1,
         ]);
-        DB::table('brands')->insert([
-            'user_id' => 1,
-            'name' => 'LSC',
-            'description' => 'Красота і здоров`я',
-            'website' => 'lsc.com.ua',
-            'email' => 'LSC@gmail.com',
-            'phone_number' => '3301301313',
+        $user->roles()->attach([$adminRole->id, $subscriberRole->id]);
+
+        $user = User::factory()->create([
+            'name' => 'Manager',
+            'email'=>'manager@gmail.com',
+            'phone_number' => '+34583658345',
+            'password'=> Hash::make('password'),
+            'admin' => 0,
+            'role' => 2,
         ]);
-        DB::table('brands')->insert([
-            'user_id' => 2,
-            'name' => 'Спецмонтаж',
-            'description' => 'Будівництво',
-            'website' => 'smt.com.ua',
-            'email' => 'smt@gmail.com',
-            'phone_number' => '1332332332',
+        $user->roles()->attach([$employeeRole->id]);
+
+        $user = User::factory()->create([
+            'name' => 'User',
+            'email'=>'user@gmail.com',
+            'phone_number' => '+484848848484848',
+            'password'=> Hash::make('password'),
+            'admin' => 0,
+            'role' => 10,
         ]);
+        $user->roles()->attach([$subscriberRole->id]);
+
 
     }
 }

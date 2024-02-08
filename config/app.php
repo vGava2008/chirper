@@ -83,6 +83,7 @@ return [
     */
 
     'locale' => 'en',
+    'locales' => ['en', 'ru', 'uk'],
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +95,6 @@ return [
     | the language folders that are provided through your application.
     |
     */
-
     'fallback_locale' => 'en',
 
     /*
@@ -194,6 +194,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        \App\Services\Localization\LocalizationServiceProvider::class,
 
     ],
 

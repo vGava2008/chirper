@@ -1,12 +1,6 @@
 <script setup>
-import Dropdown from '@/Components/Dropdown.vue';
-import DropdownLink from '@/Components/DropdownLink.vue';
-import InputError from '@/Components/InputError.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import {useForm} from '@inertiajs/inertia-vue3';
-import {ref} from 'vue';
 
 dayjs.extend(relativeTime);
 
@@ -43,7 +37,7 @@ const props = defineProps(['brands']);
 
                         <tr v-for="brand in brands">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                {{ brand.name }}
+                                <a :href="'/brand/'+brand.id+'/show/'" class="text-indigo-600 hover:text-indigo-900">{{ brand.name }}</a>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 {{ brand.description }}
@@ -59,7 +53,7 @@ const props = defineProps(['brands']);
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a :href="'/brand/'+brand.id" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                <a :href="'/brand/'+brand.id+'/edit/'" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                             </td>
                         </tr>
                         </tbody>
