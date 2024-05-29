@@ -25,13 +25,13 @@ class BotController extends Controller
         $MadelineProto->start();
         $val['url'] = 'https://t.me/deraketaua';
         $data = array(
-            'peer' => '@'.$val['url'], //название_канала, должно начинаться с @, например @breakingmash, все остальные параметры, кроме limit, можно оставить равными 0
+            'peer' => '@'.$val['url'],
             'offset_id' => 0,
             'offset_date' => 0,
             'add_offset' => 0,
-            'limit' => 1, //Количество постов, которые вернет клиент
-            'max_id' => 0, //Максимальный id поста
-            'min_id' => 0, //Минимальный id поста - использую для пагинации, при  0 возвращаются последние посты.
+            'limit' => 1,
+            'max_id' => 0,
+            'min_id' => 0,
             'hash' => 0
         );
 

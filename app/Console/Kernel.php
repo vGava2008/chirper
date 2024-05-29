@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('command:telegram')->everyMinute()->appendOutputTo(storage_path('logs/schedule.log'));;
+         $schedule->command('command:telegram')->everyMinute()->appendOutputTo(storage_path('logs/schedule.log'));
     }
 
     /**
